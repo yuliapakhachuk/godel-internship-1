@@ -100,6 +100,7 @@ const data = [
 
 ];
 
+
 const refs = {
     tableBody: document.querySelector('.table__body'),
     searchInput: document.querySelector(".search"),
@@ -173,14 +174,12 @@ const values = {
 }
 
 let timer;
-let FILTRED_DATA = data;
-let SORTED_DATA = data;
+let dataForRender = [...data];
 
 function changeField(fieldName, value) { 
     values[fieldName] = value;
-    if (timer) {
-        clearTimeout(timer) } 
-    timer = setTimeout(() => filterTable(data), 0);
+    if (timer) { clearTimeout(timer) } 
+    timer = setTimeout(() => filterTable(dataForRender), 500);
 }
 
 
@@ -202,71 +201,36 @@ function filterTable(data) {
             (isNaN(lastDate) || dataEndDate <= lastDate);
     });
 
-    FILTRED_DATA = filtredData;
     displayMatches(filtredData);
-    // sortTable();
-    refs.switchBtn.classList.contains("rotate") ? switchSortDirection() : sortTable()
 }
 
 
 function sortTable() { 
-    switch(refs.sortInput.value) {
+    refs.switchBtn.disabled = false;
+    switch (refs.sortInput.value) {
         case 'name': 
-            SORTED_DATA = FILTRED_DATA.sort((a, b) => a.name.localeCompare(b.name));
-            displayMatches(SORTED_DATA);
+            dataForRender.sort((a, b) => a.name.localeCompare(b.name));
             break;
         case 'status':
-            SORTED_DATA = FILTRED_DATA.sort((a, b) => a.status.localeCompare(b.status));
-            displayMatches(SORTED_DATA);
+            dataForRender.sort((a, b) => a.status.localeCompare(b.status));
             break;
         case 'user': 
-            SORTED_DATA = FILTRED_DATA.sort((a, b) => a.userName.localeCompare(b.userName));
-            displayMatches(SORTED_DATA);
+            dataForRender.sort((a, b) => a.userName.localeCompare(b.userName));
             break;
         case 'date':
-            SORTED_DATA = FILTRED_DATA.sort((a, b) => new Date(a.endDate).getTime() - new Date(b.endDate).getTime());
-            displayMatches(SORTED_DATA);
+            dataForRender.sort((a, b) => new Date(a.endDate).getTime() - new Date(b.endDate).getTime());
             break;
         case 'total used':
-            SORTED_DATA = FILTRED_DATA.sort((a, b) =>
+            dataForRender.sort((a, b) =>
                 Number.parseFloat((a.totalUsed).slice(1, a.totalUsed.length)) - Number.parseFloat((b.totalUsed).slice(1, b.totalUsed.length)))
-            displayMatches(SORTED_DATA);
             break;
         case '':
-            
-            filterTable(data);
-            break;
+            refs.switchBtn.disabled = true;
+            dataForRender = [...data];
     }
+    filterTable(dataForRender);
 }
 
-function switchSortDirection() { 
-    switch(refs.sortInput.value) {
-        case 'name': 
-            SORTED_DATA = FILTRED_DATA.sort((a, b) => b.name.localeCompare(a.name));
-            displayMatches(SORTED_DATA);
-            break;
-        case 'status':
-            SORTED_DATA = FILTRED_DATA.sort((a, b) => b.status.localeCompare(a.status));
-            displayMatches(SORTED_DATA);
-            break;
-        case 'user':
-            SORTED_DATA = FILTRED_DATA.sort((a, b) => b.userName.localeCompare(a.userName));
-            displayMatches(SORTED_DATA);
-            break;
-        case 'date':
-            SORTED_DATA = FILTRED_DATA.sort((a, b) => new Date(b.endDate).getTime() - new Date(a.endDate).getTime());
-            displayMatches(SORTED_DATA);
-            break;
-        case 'total used':
-            SORTED_DATA = FILTRED_DATA.sort((a, b) =>
-                    Number.parseFloat((b.totalUsed).slice(1, b.totalUsed.length)) - Number.parseFloat((a.totalUsed).slice(1, a.totalUsed.length)))
-            displayMatches(SORTED_DATA);
-            break;
-        case '':
-            filterTable(data);
-            break;
-    }
-}
 
 function displayMatches(data) { 
     const newTable = createTableHTML(data);
@@ -282,5 +246,7 @@ refs.lastDateInput.addEventListener('input', (e) => changeField("lastDate", e.ta
 refs.sortInput.addEventListener('input', () => sortTable());
 
 refs.switchBtn.addEventListener('click', () => {
-    refs.switchBtn.classList.toggle("rotate")
-    refs.switchBtn.classList.contains("rotate") ? switchSortDirection() : sortTable()});
+    refs.switchBtn.classList.toggle("rotate");
+    dataForRender.reverse();
+    filterTable(dataForRender);
+});
