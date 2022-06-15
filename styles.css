@@ -120,8 +120,8 @@ th {
     padding-bottom: 34px;
 }
 .doctitle,
-.card-type,
-.user-name,
+.card__type,
+.user__name,
 .last-trans-date {
     padding-bottom: 7px;
     font-weight: 600;
@@ -132,7 +132,7 @@ th {
     
     color: #313A4E;
 }
-.secondary-data {
+.secondary__data {
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.1px;
@@ -201,7 +201,7 @@ th {
     margin-right: 8px;
     padding: 4px;
 }
-.end-data {
+.end__data {
     font-weight: 500;
     font-size: 16px;
     line-height: calc(19 /16);
@@ -209,7 +209,7 @@ th {
     
     color: #313A4E;
 }
-.total-sum {
+.totalsum {
     font-weight: 500;
     font-size: 20px;
     line-height: calc(24 / 20);
@@ -251,7 +251,7 @@ th {
     border-style: solid;
     color: #000;
 }
-.tbl-footer {
+.tbl__footer {
     padding-top: 20px;
     padding-bottom: 20px;
 }
