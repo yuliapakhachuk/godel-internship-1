@@ -11,10 +11,75 @@ input {
 }
 body {
     box-sizing: border-box;
+    display: flex;
+
     font-family: 'Inter', sans-serif;
     background-color: #f6f9ff;
 }
+.side__bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #111111;
+    color: #FFFFFF;
+    border-top-right-radius: 50px;
+    min-width: 290px;
+
+    padding-top: 60px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-bottom: 60px;
+}
+.side__bar--title {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+
+    margin-bottom: 66px;
+}
+.side__menu--transaction,
+.side__menu--cards  {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+
+    color: #BABEC8;
+}
+.side__menu--transaction {
+    margin-bottom: 53px;
+}
+.unactive {
+    opacity: 0.6;
+}
+.login__data {
+    position: relative;
+
+    font-size: 16px;
+    padding-top: 36px;
+    border-top: 1px solid #6B6F7B;
+}
+.ava-wrapper {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid #17E383;
+    background-color: #313A4E;
+}
+.login__list {
+    position: absolute;
+    top: 40px;
+    left: 56px;
+}
+.login__user--mail {
+    font-size: 12px;
+}
+.aplication__item {
+    margin-top: 28px;
+}
 .container {
+    /* outline: 1px solid tomato; */
     margin: 0 auto;
     min-width: 1505px;
     padding-left: 77px;
@@ -254,4 +319,5 @@ th {
 .tbl__footer {
     padding-top: 20px;
     padding-bottom: 20px;
+    border-top: 2px solid #D9D9D9;
 }

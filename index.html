@@ -12,73 +12,99 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <section class="cards">
-        <div class="container">
-            <h2>Cards</h2>
-            <div class="grid__container">
-                <div class="card__item user__card"></div>
-                <div class="card__item user__card--new"></div>
-            </div>
+    <aside class="side__bar">
+        <div class="side__title--wrapper">
+            <h1 class="side__bar--title">E-Cards</h1>
+            <p class="side__menu--transaction unactive">Transactions</p>
+            <p class="side__menu--cards">Cards</p>
         </div>
-    </section>
-    <section class="transactions">
-        <div class="container">
-        <h2>Transactions</h2>
-        <div class="filter__list">
-            <input type="text" class="filter__input search" placeholder="Search for.... ">
-            <input type="text" class="filter__input employee__filter" placeholder="Employee">
-            <select name="status" id="status" class="filter__input status__filter">
-            </select>
-            <div class="date__filter">
-                <p class="date__filter--title">Date filter</p>
-                <input type="date" class="filter__input first__date">
-                <input type="date" class="filter__input last__date">
+        <div class="login__data">
+            <div class="ava-wrapper"></div>
+            <ul class="login__list">
+                <li class="login__item login__user--name">
+                    Itai Bracha
+                </li>
+                <li class="login__item login__user--mail">
+                    Itaibrahca31@gmail.com
+                </li>
+            </ul>
+            <ul class="application__menu">
+                <li class="aplication__item">Settings</li>
+                <li class="aplication__item">Logout</li>
+            </ul>
+        </div>
+    </aside>
+    <div class="main__content">
+        <section class="cards">
+            <div class="container">
+                <h2>Cards</h2>
+                <div class="grid__container">
+                    <div class="card__item user__card">
+                        <img src="./images/Group 2847.jpg" alt="users card">
+                    </div>
+                    <div class="card__item user__card--new"></div>
+                </div>
             </div>
-            <div class="filter__item sorting__filter--item">
-                <select name="sort_type" id="sort_type" class="sort__type filter__input">
-                    <option value="">Sort by</option>
-                    <option value="name">name</option>
-                    <option value="status">status</option>
-                    <option value="user">user</option>
-                    <option value="date">date</option>
-                    <option value="total used">total used</option>
+        </section>
+        <section class="transactions">
+            <div class="container">
+            <h2>Transactions</h2>
+            <div class="filter__list">
+                <input type="text" class="filter__input search" placeholder="Search for.... ">
+                <input type="text" class="filter__input employee__filter" placeholder="Employee">
+                <select name="status" id="status" class="filter__input status__filter">
                 </select>
+                <div class="date__filter">
+                    <p class="date__filter--title">Date filter</p>
+                    <input type="date" class="filter__input first__date">
+                    <input type="date" class="filter__input last__date">
+                </div>
+                <div class="filter__item sorting__filter--item">
+                    <select name="sort_type" id="sort_type" class="sort__type filter__input">
+                        <option value="">Sort by</option>
+                        <option value="name">name</option>
+                        <option value="status">status</option>
+                        <option value="user">user</option>
+                        <option value="date">date</option>
+                        <option value="total used">total used</option>
+                    </select>
+                </div>
+                <button type="button" class="switch__btn" disabled></button type="button">
             </div>
-            <button type="button" class="switch__btn" disabled></button type="button">
-        </div>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th >
-                        </th>
-                        <th colspan="2">Name</th>
-                        <th colspan="2">User credentials</th>
-                        <th>Last Transcation</th>
-                        <th>Status</th>
-                        <th>End date</th>
-                        <th>Total Used</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody class="table__body"></tbody>
-                <tfoot>
-                    <tr >
-                        <td colspan="10" class="tbl__footer">
-                            <div class="circles">
-                                <div class="circle"> < </div>
-                                <div class="circle">1</div>
-                                <div class="circle">2</div>
-                                <div class="circle">3</div>
-                                <div class="circle">4</div>
-                                <div class="circle"> > </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    </section>
-    
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th >
+                            </th>
+                            <th colspan="2">Name</th>
+                            <th colspan="2">User credentials</th>
+                            <th>Last Transcation</th>
+                            <th>Status</th>
+                            <th>End date</th>
+                            <th>Total Used</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table__body"></tbody>
+                    <tfoot>
+                        <tr >
+                            <td colspan="10" class="tbl__footer">
+                                <div class="circles">
+                                    <div class="circle"> < </div>
+                                    <div class="circle">1</div>
+                                    <div class="circle">2</div>
+                                    <div class="circle">3</div>
+                                    <div class="circle">4</div>
+                                    <div class="circle"> > </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </div>
+
     <script src="./index.js"></script>
 </body>
 </html>
